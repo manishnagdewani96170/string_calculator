@@ -7,6 +7,7 @@ class StringCalculator
 
   def add
     return 0 if input.size == 0
+    return input.first if input.size == 1
 
     input.sum
   end

@@ -9,5 +9,17 @@ describe StringCalculator do
         expect(described_class.new('').add).to eq(0)
       end
     end
+
+    context 'when passed string with 1 as digit' do  
+      it 'should print 1' do
+        expect(described_class.new('1').add).to eq(1)
+      end
+    end
+
+    context 'when passed string with 5 as digit' do  
+      it 'should print 5' do
+        expect(described_class.new('5').add).to eq(5)
+      end
+    end
   end
 end
