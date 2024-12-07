@@ -39,5 +39,11 @@ describe StringCalculator do
         expect(described_class.new('1%%2,3').add).to eq(6)
       end
     end
+
+    context 'when passed string with two digits along with some different delimiters like ;' do  
+      it 'should print 3' do
+        expect(described_class.new('//;\n1;2').add).to eq(3)
+      end
+    end
   end
 end
