@@ -15,13 +15,13 @@ class StringCalculator
       raise StandardError.new "Negative numbers not allowed #{negative_nos.join(',')}"
     end
       
-    input.sum
+    input.reject { |num| num > 1000 }.sum
   end
 
   private
 
   def parse_input(str)
-    str.scan(/-?\d+/).map(&:to_i)
+    str.scan(/-?\d{1,4}+/).map(&:to_i)
   end
 
 end

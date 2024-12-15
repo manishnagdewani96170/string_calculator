@@ -57,5 +57,29 @@ describe StringCalculator do
         expect{ described_class.new('//[***]\n1,5,-6').add }.to raise_error(StandardError, 'Negative numbers not allowed -6')
       end
     end
+
+    context 'when passed string with more than 1 digit nos' do  
+      it 'should print 66' do
+        expect(described_class.new('//[***]\n1,5,60').add).to eq(66)
+      end
+    end
+
+    context 'when passed string with more than 1 digit nos' do  
+      it 'should print 666' do
+        expect(described_class.new('//[***]\n1,5,60, 600').add).to eq(666)
+      end
+    end
+
+     context 'when passed string with less than 1000' do  
+      it 'should print 999' do
+        expect(described_class.new('//[***]\n9,90,900').add).to eq(999)
+      end
+    end
+
+    context 'when passed string as one of a no more than 1000' do  
+      it 'should ignore more than 1000 no in addition' do
+        expect(described_class.new('//[***]\n1,5,6000,60').add).to eq(66)
+      end
+    end
   end
 end
